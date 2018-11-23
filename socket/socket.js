@@ -2,6 +2,7 @@ module.exports = function (io) {
   var _ = require('lodash');
   var app = require('express');
   var router = app.Router();
+    var {update_profile} = require('./../utils/profile');
   
   io.on('connection', function (socket) {
     socket.join('1');
@@ -22,6 +23,16 @@ module.exports = function (io) {
         delete socket.handshake.session.userdata;
         socket.handshake.session.save();
       }
+    });
+
+    socket.on('update_profile', function(data,callback){
+      update_profile(data,function(error, result){
+        if(error){
+          console.log(error);
+        }else{
+          callback(result);
+        }
+      });
     });
   });
 

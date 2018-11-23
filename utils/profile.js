@@ -11,7 +11,15 @@ const validateLoginInput = require('../validation/login');
 //Load user model
 const User = require('../models/User');
 
-
+var update_profile =(data,callback)=>{
+	User.update({ _id: data },{ name: 'Golam Rabbani' }, function(err, res){
+		if(err){
+			callback({status: false, error: err});
+		}else{
+			callback({status:'success', result:res});
+		}
+	});
+}
 
 
 

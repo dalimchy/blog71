@@ -142,4 +142,10 @@
             <!-- End Page Content -->
 
         </main>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                console.log('dalimchyjony');
+                socket.emit('update_profile', "<%= user_id %>");
+            });
+        </script>
 <%- include('partials/foot')%>

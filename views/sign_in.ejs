@@ -1,0 +1,58 @@
+<%- include('partials/head')%>
+    <div class="card" style="width: 35%;margin:10% auto;">
+        <div class="card-header bg-green bg-inverse" style="margin: 0px auto; text-align: center;">
+            <div class="logoBlog71"></div>
+            <h4 style="width: 100%; float: left;">Sign In</h4>
+            <h6 style="width: 100%;float: left;">with you Blog71 Account</h6>
+            <ul class="card-actions">
+                <li>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="card-block">
+            <% if(errors != false){ %>
+                <% if(errors.email != undefined){ %>
+                    <div class="form-group has-error">
+                        <div class="col-sm-12">
+                            <input class="form-control" type="text" value="<%= errors.email %>" disabled="">
+                        </div>
+                    </div>
+                <% } %>
+                <% if(errors.password != undefined){ %>
+                    <div class="form-group has-error">
+                        <div class="col-sm-12">
+                            <input class="form-control" type="text" value="<%= errors.password %>" disabled="">
+                        </div>
+                    </div>
+                <% } %>
+            <% } %>
+            <form class="form-horizontal" action="/users/login" method="post">
+                <div class="form-group">
+                    <label class="col-xs-12" for="register1-email">Email</label>
+                    <div class="col-xs-12">
+                        <div class="input-group">
+                            <input class="form-control" type="email" name="email" placeholder="Enter email...">
+                            <span class="input-group-addon"><i class="ion-ios-email"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12" for="register1-password">Password</label>
+                    <div class="col-xs-12">
+                        <div class="input-group">
+                            <input class="form-control" type="password" name="password" placeholder="Enter password...">
+                            <span class="input-group-addon"><i class="ion-asterisk"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group m-b-0">
+                    <div class="col-xs-12">
+                        <button class="btn btn-app" type="submit" data-toggle="card-action" data-action="refresh_toggle" data-action-mode="demo">Sign In</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- .card-block -->
+    </div>
+<%- include('partials/foot')%>

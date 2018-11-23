@@ -1,0 +1,39 @@
+<!-- Drawer -->
+<aside class="app-layout-drawer">
+
+    <!-- Drawer scroll area -->
+    <div class="app-layout-drawer-scroll">
+        <!-- Drawer logo -->
+        <div id="logo" class="drawer-header">
+            <a href="index.html"><img class="img-responsive" src="/assets/img/logo/logo-backend.png" title="AppUI" alt="AppUI" /></a>
+        </div>
+
+        <!-- Drawer navigation -->
+        <nav class="drawer-main">
+            <ul class="nav nav-drawer">
+
+                <li class="nav-item nav-drawer-header">Apps</li>
+                <li class="nav-item <% if(title == 'Dashboard'){%> active <%}%>">
+                    <a href="/Dashboard"><i class="ion-ios-speedometer-outline"></i> Dashboard</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/"><i class="ion-ios-monitor-outline"></i> Frontend</a>
+                </li>
+
+                <li class="nav-item <% if(title == 'Profile'){%> active <%}%>">
+                    <a href="/profile"><i class="ion-ios-contact-outline" style="color:rgb(125, 200, 85);"></i>  Profile</a>
+                </li>
+
+                <li class="nav-item nav-drawer-header">Components</li>
+            </ul>
+        </nav>
+        <!-- End drawer navigation -->
+
+        <div class="drawer-footer">
+            <p class="copyright">Blog71 Template &copy;</p>
+        </div>
+    </div>
+    <!-- End drawer scroll area -->
+</aside>
+<!-- End drawer -->

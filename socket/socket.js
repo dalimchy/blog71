@@ -18,11 +18,16 @@ module.exports = function (io) {
 
     socket.on('disconnect', function () {
       console.log('disconnect*********************',socket.handshake.session.confdata);
-      io.sockets.in('navigate_2018_902770').emit('logout', { userdata: socket.handshake.session.userdata });
-      if (socket.handshake.session.userdata) {
-        delete socket.handshake.session.userdata;
-        socket.handshake.session.save();
+      if(socket.handshake.session.userdata){
+        console.log(22,'socket.js',socket.handshake.session.userdata);
+      }else{
+        io.sockets.in('navigate_2018_902770').emit('logout', { userdata: socket.handshake.session.userdata });
+        if (socket.handshake.session.userdata) {
+          delete socket.handshake.session.userdata;
+          socket.handshake.session.save();
+        }
       }
+      
     });
 
     socket.on('update_profile', function(data,callback){

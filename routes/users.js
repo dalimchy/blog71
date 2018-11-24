@@ -113,7 +113,7 @@ router.post('/login', (req, res) => {
         // Check Password
         bcrypt.compare(password, user.password).then(isMatch => {
           if (isMatch) {
-            console.log(user);
+            console.log(116,user);
             req.session.success = true;
             req.session.login = true;
             req.session.user_id = user._id;

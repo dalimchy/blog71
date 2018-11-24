@@ -17,12 +17,4 @@ router.get('/', function (req, res, next) {
     }
 });
 
-/* Signout. */
-router.get('/', function (req, res, next) {
-    if(req.session.login){
-        req.session.destroy();
-        res.redirect('/');
-    }
-});
-
 module.exports = router;

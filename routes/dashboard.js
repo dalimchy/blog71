@@ -14,37 +14,53 @@ router.get('/', function(req, res, next) {
         req.session.user_avatar = "female_avatar.svg";
       }
     }
-    
+    var allUsers;
     User.findOne({_id:req.session.user_id},(err,result)=>{
+
         if(err){
           console.log(err);
         }else{
+          User.find((err,allData)=>{
+            if(err){
+              console.log(err);
+            }else{
+              allUsers = allData;
               var res_data = {
-                  title: "Dashboard",
-                  success: req.session.success,
-                  user_id: req.session.user_id,
-                  frist_name: result.frist_name,
-                  last_name: result.last_name,
-                  user_name: result.name,
-                  user_email: result.email,
-                  user_avatar: req.session.user_avatar,
-                  cover_photo: req.session.cover_photo,
-                  user_phone: result.phone,
-                  user_type: result.type,
-                  gender: result.gender,
-                  company: result.company,
-                  about_me: result.about_me,
-                  nid_number: result.nid_number,
-                  home_address: result.home_address,
-                  bio: result.bio,
-                  join_date: result.join_date,
-                  moment: moment,
-                  _:_,
-                  has_login: true,
-                };
-                res.render("dashboard", res_data);
-        }
+                title: "Dashboard",
+                success: req.session.success,
+                user_id: req.session.user_id,
+                frist_name: result.frist_name,
+                last_name: result.last_name,
+                user_name: result.name,
+                user_email: result.email,
+                user_avatar: req.session.user_avatar,
+                cover_photo: req.session.cover_photo,
+                user_phone: result.phone,
+                user_type: result.type,
+                gender: result.gender,
+                company: result.company,
+                about_me: result.about_me,
+                nid_number: result.nid_number,
+                home_address: result.home_address,
+                bio: result.bio,
+                join_date: result.join_date,
+                moment: moment,
+                _:_,
+                has_login: true,
+                data: [{
+                        users: allUsers
+                      }],
+
+              };
+              //console.log(56,res_data.data[0].users);
+              res.render("dashboard", res_data);   
+            }
+          });
+                   
+          }
       });
+    
+    
   } else {
     res.redirect('/login');
   }

@@ -1,5 +1,5 @@
 <%- include('partials/head')%>
-    <div class="card" style="width: 35%;margin:10% auto;">
+    <div class="card" style="width: 35%;margin:0% auto;">
         <div class="card-header bg-green bg-inverse">
             <h4>Create new account</h4>
         </div>
@@ -25,9 +25,9 @@
                             <p><strong>Warning! </strong><%= data.email %></p>
                         </div>
                     <% } %>
-                    <% if(data.frist_name != undefined){ %>
+                    <% if(data.fname != undefined){ %>
                         <div class="alert alert-warning">
-                            <p><strong>Warning! </strong><%= data.frist_name %></p>
+                            <p><strong>Warning! </strong><%= data.fname %></p>
                         </div>
                     <% } %>
                 <% } %>
@@ -107,7 +107,15 @@
                 </div>
                 <div class="form-group m-b-0">
                     <div class="col-xs-12">
-                        <button class="btn btn-app" type="submit" data-toggle="card-action" data-action="refresh_toggle" data-action-mode="demo" >Register</button>
+                        <button class="btn btn-app-purple" type="submit" data-toggle="card-action" data-action="refresh_toggle" data-action-mode="demo" style="width: 100%">Sign Up</button>
+                    </div>
+                </div>
+                <div class="form-group m-b-0">
+                    <div class="col-xs-12" style="text-align: center; margin-top: 12px">
+                        <span style="color:gray; width: 100%;">You have already account ?</span>
+                    </div>
+                    <div class="col-xs-12">
+                        <a href="/login" class="btn btn-app" data-toggle="card-action" data-action="refresh_toggle" data-action-mode="demo" style="width: 100%">Sign In</a>
                     </div>
                 </div>
             </form>

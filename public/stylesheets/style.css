@@ -1,8 +1,13 @@
-body {
+/*body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}*/
+
+.nav-drawer > li > a > i{
+	font-size: 22px !important;
+    line-height: 24px !important;
 }

@@ -14,20 +14,37 @@ router.get('/', function(req, res, next) {
         req.session.user_avatar = "female_avatar.svg";
       }
     }
-    var res_data = {
-      title: "Dashboard",
-      success: req.session.success,
-      user_id: req.session.user_id,
-      user_name: req.session.user_name,
-      user_email: req.session.user_email,
-      user_avatar: req.session.user_avatar,
-      user_phone: req.session.user_phone,
-      user_type: req.session.user_type,
-      moment: moment,
-      _:_,
-      has_login: true,
-    };
-    res.render("dashboard", res_data);
+    
+    User.findOne({_id:req.session.user_id},(err,result)=>{
+        if(err){
+          console.log(err);
+        }else{
+              var res_data = {
+                  title: "Dashboard",
+                  success: req.session.success,
+                  user_id: req.session.user_id,
+                  frist_name: result.frist_name,
+                  last_name: result.last_name,
+                  user_name: result.name,
+                  user_email: result.email,
+                  user_avatar: req.session.user_avatar,
+                  cover_photo: req.session.cover_photo,
+                  user_phone: result.phone,
+                  user_type: result.type,
+                  gender: result.gender,
+                  company: result.company,
+                  about_me: result.about_me,
+                  nid_number: result.nid_number,
+                  home_address: result.home_address,
+                  bio: result.bio,
+                  join_date: result.join_date,
+                  moment: moment,
+                  _:_,
+                  has_login: true,
+                };
+                res.render("dashboard", res_data);
+        }
+      });
   } else {
     res.redirect('/login');
   }

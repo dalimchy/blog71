@@ -9,7 +9,7 @@ $('#updateGeneralInfo').on('click', function(){
         home_address : $('#userHomeAddress').val(),
         about_me : $('#userAboutMe').val()
     };
-    if(data.frist_name.length > 2){
+    if(data.frist_name.length > 1){
         socket.emit('update_profile',data, (res)=>{
             if(res.status == "success"){
                 var alertDesign  = '<div class="alert alert-success">';

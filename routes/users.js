@@ -20,7 +20,6 @@ router.get('/', function(req, res, next) {
 // @access  Public
 router.post('/register', (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
-
   // Check Validation
   if (!isValid) {
     var data = {
@@ -33,7 +32,7 @@ router.post('/register', (req, res) => {
       if (user) {
         errors.email = 'Email already exists';
         var data = {
-          title: 'Register | Blog24',
+          title: 'Register | Blog71',
           data: errors
         }
         res.render("signup", data);
@@ -74,6 +73,14 @@ router.post('/register', (req, res) => {
   }
 
   
+});
+router.get('/register', (req, res) => {
+  var data = {
+      title: 'Register | Blog71',
+      has_login: false,
+      data: true
+    }
+  res.render("signup", data);
 });
 
 
@@ -146,6 +153,18 @@ router.post('/login', (req, res) => {
         });
       });
     }
+  }
+});
+router.get('/login', (req, res) => {
+  
+  if (req.session.login) {
+    res.redirect('/dashboard');
+  } else {
+    var data = { 
+      title: 'Login | Blog71', 
+      errors: true 
+    }
+    res.render("sign_in", data);
   }
 });
 

@@ -11,21 +11,17 @@
         <!-- Drawer navigation -->
         <nav class="drawer-main">
             <ul class="nav nav-drawer">
-
-                <li class="nav-item nav-drawer-header">Apps</li>
                 <li class="nav-item <% if(title == 'Dashboard'){%> active <%}%>">
-                    <a href="/Dashboard"><i class="ion-ios-speedometer-outline"></i> Dashboard</a>
+                    <a href="/Dashboard" style="<% if(title == 'Dashboard'){%> color:rgb(125, 200, 85) <%}%>"><i class="ion-ios-speedometer" ></i> Dashboard</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="/"><i class="ion-ios-monitor-outline"></i> Frontend</a>
+                    <a href="/"><i class="ion-ios-monitor"></i> Frontend</a>
                 </li>
 
                 <li class="nav-item <% if(title == 'Profile'){%> active <%}%>">
-                    <a href="/profile"><i class="ion-ios-contact-outline" style="color:rgb(125, 200, 85);"></i>  Profile</a>
+                    <a href="/profile" style="<% if(title == 'Profile'){%> color:rgb(125, 200, 85) <%}%>"><i class="ion-ios-contact-outline"></i>  Profile</a>
                 </li>
-
-                <li class="nav-item nav-drawer-header">Components</li>
             </ul>
         </nav>
         <!-- End drawer navigation -->

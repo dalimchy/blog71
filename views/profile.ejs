@@ -34,101 +34,44 @@
                             <div class="card-block tab-content">
                                 <!-- Profile tab 1 -->
                                 <div class="tab-pane fade in active">
-                                    <form class="fieldset">
+                                    <form class="fieldset" id="profileGeneralInfoForm">
+                                        <div id="alertMessage"></div>
                                         <h4 class="m-t-sm m-b">General info</h4>
                                         <div class="form-group row">
                                             <div class="col-xs-6">
                                                 <label for="exampleInputName1">First name</label>
-                                                <input type="text" class="form-control" name="fname" value="<%= frist_name %>" placeholder="Enter Frist Name...">
+                                                <input type="text" class="form-control" name="fname" value="<%= frist_name %>" placeholder="Enter Frist Name..." id="userFristName">
                                             </div>
                                             <div class="col-xs-6">
                                                 <label for="exampleInputName2">Last name</label>
-                                                <input type="text" class="form-control" name="lname" value="<%= last_name %>" placeholder="Enter Last Name...">
+                                                <input type="text" class="form-control" name="lname" value="<%= last_name %>" placeholder="Enter Last Name..." id="userLastName">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-xs-6">
                                                 <label for="exampleInputPhone1">Mobile phone</label>
-                                                <input type="tel" class="form-control" name="phone" value="<%= user_phone %>" placeholder="Enter Mobile Number">
+                                                <input type="tel" class="form-control" name="phone" value="<%= user_phone %>" placeholder="Enter Mobile Number" id="userMobilePhone">
                                             </div>
                                             <div class="col-xs-6">
                                                 <label>Email Address</label>
-                                                <input type="email" class="form-control" name="email" value="<%= user_email %>" disabled="">
+                                                <input type="email" class="form-control" name="email" value="<%= user_email %>" disabled="" id="userEmailAddress">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Address</label>
-                                            <input type="text" class="form-control" name="home_address" value="<%= home_address %>" placeholder="Write your address...">
+                                            <input type="text" class="form-control" name="home_address" value="<%= home_address %>" placeholder="Write your address..." id="userHomeAddress">
                                         </div>
                                         <div class="form-group">
                                             <label>About Me</label>
-                                            <textarea type="text" class="form-control" name="about_me" value="<%= about_me %>" placeholder="Write something about you..."><%= about_me %></textarea>
+                                            <textarea type="text" class="form-control" name="about_me" value="<%= about_me %>" placeholder="Write something about you..." id="userAboutMe"><%= about_me %></textarea>
                                         </div>
                                         <div class="row narrow-gutter">
                                             <div class="col-xs-6">
-                                                <button type="button" class="btn btn-default btn-block">Cancel</button>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <button type="button" class="btn btn-app btn-block">Save<span class="hidden-xs"> changes</span></button>
+                                                <button type="button" id="updateGeneralInfo" class="btn btn-app btn-block">Save<span class="hidden-xs"> changes</span></button>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
-                                <!-- <div class="tab-pane fade in active" id="profile-tab1">
-                                    <form class="fieldset">
-                                        <h4 class="m-t-sm m-b">General info</h4>
-                                        <div class="form-group row">
-                                            <div class="col-xs-6">
-                                                <label for="exampleInputName1">First name</label>
-                                                <input type="text" class="form-control" name="fname" value="<%= frist_name %>" placeholder="Enter Frist Name...">
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <label for="exampleInputName2">Last name</label>
-                                                <input type="text" class="form-control" name="lname" value="<%= last_name %>" placeholder="Enter Last Name...">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-xs-6">
-                                                <label for="exampleInputPhone1">Mobile phone</label>
-                                                <input type="tel" class="form-control" name="phone" value="<%= user_phone %>" placeholder="Enter Mobile Number">
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <label for="exampleInputAddress">Email Address</label>
-                                                <input type="email" class="form-control" name="email" value="<%= user_email %>">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputAddress">Email Address</label>
-                                            <input type="text" class="form-control" name="email" value="<%= user_email %>">
-                                        </div>
-
-                                        <h4 class="m-t-md m-b">Change password</h4>
-                                        <div class="form-group row">
-                                            <div class="col-xs-6">
-                                                <label for="exampleInputPassword1">Confirm current password</label>
-                                                <input type="password" class="form-control" name="password" value="" placeholder="Confirm current password">
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <label for="exampleInputPassword2">Confirm new password</label>
-                                                <input type="password" class="form-control" name="password1" value="" placeholder="Confirm new password" >
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-xs-6">
-                                                <label for="exampleInputPassword3">New password</label>
-                                                <input type="password" class="form-control" name="password2" value="" placeholder="New password">
-                                            </div>
-                                        </div>
-                                        <div class="row narrow-gutter">
-                                            <div class="col-xs-6">
-                                                <button type="button" class="btn btn-default btn-block">Cancel</button>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <button type="button" class="btn btn-app btn-block">Save<span class="hidden-xs"> changes</span></button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div> -->
                                 <!-- End profile tab 1 -->
                             </div>
                             <!-- .card-block .tab-content -->
@@ -143,9 +86,7 @@
 
         </main>
         <script type="text/javascript">
-            $(document).ready(function(){
-                console.log('dalimchyjony');
-                socket.emit('update_profile', "<%= user_id %>");
-            });
+            var user_id = '<%= user_id %>';
+            var user_name = '<%= user_name %>';
         </script>
 <%- include('partials/foot')%>

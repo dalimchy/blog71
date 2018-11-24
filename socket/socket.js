@@ -28,7 +28,7 @@ module.exports = function (io) {
     socket.on('update_profile', function(data,callback){
       update_profile(data,function(error, result){
         if(error){
-          console.log(error);
+          callback(error);
         }else{
           callback(result);
         }

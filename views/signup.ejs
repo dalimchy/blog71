@@ -6,38 +6,28 @@
         <div class="card-block">
             <% if(data != true){ %>
                 <% if(data._id != undefined){ %>
-                    <div class="form-group has-success">
-                        <div class="col-sm-12">
-                            <input class="form-control" type="text" value="Successfully Inserted" disabled="">
-                        </div>
+                    <div class="alert alert-success">
+                        <p><strong>Well done! </strong>You successfully Inserted</p>
                     </div>
                 <% }else{ %>
                     <% if(data.password != undefined){ %>
-                        <div class="form-group has-error">
-                            <div class="col-sm-12">
-                                <input class="form-control" type="text" value="<%= data.password %>" disabled="">
-                            </div>
+                        <div class="alert alert-warning">
+                            <p><strong>Warning! </strong><%= data.password %></p>
                         </div>
                     <% } %>
                     <% if(data.password2 != undefined){ %>
-                        <div class="form-group has-error">
-                            <div class="col-sm-12">
-                                <input class="form-control" type="text" value="<%= data.password2 %>" disabled="">
-                            </div>
+                        <div class="alert alert-warning">
+                            <p><strong>Warning! </strong><%= data.password2 %></p>
                         </div>
                     <% } %>
                     <% if(data.email != undefined){ %>
-                        <div class="form-group has-error">
-                            <div class="col-sm-12">
-                                <input class="form-control" type="text" value="<%= data.email %>" disabled="">
-                            </div>
+                        <div class="alert alert-warning">
+                            <p><strong>Warning! </strong><%= data.email %></p>
                         </div>
                     <% } %>
-                    <% if(data.name != undefined){ %>
-                        <div class="form-group has-error">
-                            <div class="col-sm-12">
-                                <input class="form-control" type="text" value="<%= data.name %>" disabled="">
-                            </div>
+                    <% if(data.frist_name != undefined){ %>
+                        <div class="alert alert-warning">
+                            <p><strong>Warning! </strong><%= data.frist_name %></p>
                         </div>
                     <% } %>
                 <% } %>
@@ -90,10 +80,10 @@
                     <label class="col-xs-12">Role</label>
                     <div class="col-xs-12">
                         <label class="css-input css-radio css-radio-success">
-                            <input type="radio" name="type" checked=""><span></span> Admin
+                            <input type="radio" name="type" checked="" value="admin"><span></span> Admin
                         </label>
                         <label class="css-input css-radio css-radio-success m-r-sm">
-                            <input type="radio" name="type"><span></span> User
+                            <input type="radio" name="type" value="user"><span></span> User
                         </label>
                     </div>
                 </div>
@@ -101,10 +91,10 @@
                     <label class="col-xs-12">Gender</label>
                     <div class="col-xs-12">
                         <label class="css-input css-radio css-radio-success">
-                            <input type="radio" name="gender" checked=""><span></span> Male
+                            <input type="radio" name="gender" checked="" value="male"><span></span> Male
                         </label>
                         <label class="css-input css-radio css-radio-success m-r-sm">
-                            <input type="radio" name="gender"><span></span> Female
+                            <input type="radio" name="gender" value="female"><span></span> Female
                         </label>
                     </div>
                 </div>

@@ -6,11 +6,15 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if (req.session.login) {
-    if(req.session.user_avater == "avatar.jpg")
-        if(req.session.gender == "male")
-          req.session.user_avater = "male_avatar.svg";
-        else
-          req.session.user_avater = "female_avatar.svg";
+    console.log(req.session.user_avatar);
+    if(req.session.user_avatar == "avatar.jpg"){
+      if(req.session.gender == "male"){
+        req.session.user_avatar = "male_avatar.svg";
+      }
+      else{
+        req.session.user_avatar = "female_avatar.svg";
+      }
+    }
 
     console.log(req.session.user_avater);
     var res_data = {

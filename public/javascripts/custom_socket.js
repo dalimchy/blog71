@@ -52,6 +52,7 @@ $(function(){
     $.each(myAllconv, function(k,v){
         myAllConversations.push($(v).attr('data-conv-id'));
         myAllSingleConvUsers.push($(v).attr('data-user-id'));
+        $('#totalConversation').text(myAllConversations.length);
     });
 });
 
@@ -74,7 +75,7 @@ var openConversation = (id)=>{
             myAllSingleConvUsers.push(id);
             $.each(allUserData, function(k,v){
                     if(v._id == id){
-                        var design = ' <li class="nav-item conversations_Sidebar" id="conv_'+res.conversation_id+'" data-name="'+v.name+'" data-conv-id="'+res.conversation_id+'" data-user-id="'+id+'" data-conv-type="'+res.conv_type+'" data-tm="'+res.participants.length+'">';
+                        var design = ' <li onclick="startConversation(\''+res.conversation_id+'\')" class="nav-item conversations_Sidebar" id="conv_'+res.conversation_id+'" data-name="'+v.name+'" data-conv-id="'+res.conversation_id+'" data-user-id="'+id+'" data-conv-type="'+res.conv_type+'" data-tm="'+res.participants.length+'">';
                             design +=      '<a>'
                             design +=           '<i class="fa fa-circle" style="color: rgb(125, 200, 85); font-size: 14px !important; line-height: 19px !important"></i>';
                             design +=           '<span class="user_name">'+v.name+'</span>';

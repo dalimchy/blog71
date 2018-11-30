@@ -11,3 +11,18 @@ a {
 	font-size: 22px !important;
     line-height: 24px !important;
 }
+.chat_page_title{
+	font-size: 18px;
+	font-weight: 500;
+	display: inline-block !important;
+	margin-left: 15px !important;
+}
+.msg-sendar-name{
+	margin-top: 0px;
+	font-size: 18px;
+	font-weight: 500;
+}
+.close_chat{
+	float: right;
+	cursor: pointer;
+}

@@ -1,0 +1,44 @@
+<div class="card" id="allUserTable" style="display:none">
+                    <div class="card-header">
+                        <h4>All Users</h4>
+                    </div>
+                    <div class="card-block">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-borderless table-vcenter">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center w-10"><i class="ion-person"></i></th>
+                                        <th>Name</th>
+                                        <th style="width: 30%;">Email</th>
+                                        <th style="width: 20%;">Role</th>
+                                        <th class="text-center" style="width: 100px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% if(title == 'Dashboard'){%>
+                                            <% if(data[0].users != undefined){%>
+                                                <% var i = 1; %>
+                                                <% _.each(data[0].users, function(v,k){%>
+                                                    <% if(v._id != user_id){%>
+                                                    <% if(v.gender == "male"){ v.avatar = 'male_avatar.svg'}else{v.avatar = 'female_avatar.svg'}%>
+                                                        <tr id="userId_<%= v._id%>" data-id="<%= v._id %>">
+                                                            <td class="text-center"><img class="img-avatar img-avatar-48" src="/usersImg/<%= v.avatar %>" alt=""></td>
+                                                            <td class="font-500"><%= v.name %></td>
+                                                            <td><%= v.email%></td>
+                                                            <td><%= v.type%></td>
+                                                            <td class="text-center">
+                                                                <div class="btn-group">
+                                                                    <button id="userView_<%= v._id%>" data-id="<%= v._id%>" class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="" data-original-title="Open Conversation" onclick=openConversation('<%= v._id%>')><i class="ion-chatbubble"></i></button>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    <%}%>
+                                                <%})%>
+                                            <%}%>
+                                        <%}%>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- .card-block -->
+                </div>

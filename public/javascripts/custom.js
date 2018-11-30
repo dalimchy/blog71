@@ -8,3 +8,20 @@ function removeA(arr) {
     }
     return arr;
 }
+
+
+function showRightSection(type){
+	if(type == "userList"){
+		$('#allUserTable').show();
+		$('#dashBoardHead').hide();
+		$('#chatContainer').hide();
+	}
+}
+
+function startConversation(convID){
+	$('#dashBoardHead').hide();
+	$('#allUserTable').hide();
+	$('#chatContainer').show();
+	// console.log(id);
+
+}

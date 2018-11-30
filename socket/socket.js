@@ -3,6 +3,7 @@ module.exports = function (io) {
   var app = require('express');
   var router = app.Router();
     var {update_profile} = require('./../utils/profile');
+    var {create_conversations} = require('./../utils/conversation');
   
   io.on('connection', function (socket) {
     socket.join('1');
@@ -32,6 +33,16 @@ module.exports = function (io) {
 
     socket.on('update_profile', function(data,callback){
       update_profile(data,function(error, result){
+        if(error){
+          callback(error);
+        }else{
+          callback(result);
+        }
+      });
+    });
+
+    socket.on('create_conversation', function(data,callback){
+      create_conversations(data,function(error, result){
         if(error){
           callback(error);
         }else{

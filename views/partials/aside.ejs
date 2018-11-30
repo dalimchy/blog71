@@ -22,7 +22,35 @@
                 <li class="nav-item <% if(title == 'Profile'){%> active <%}%>">
                     <a href="/profile" style="<% if(title == 'Profile'){%> color:rgb(125, 200, 85) <%}%>"><i class="ion-ios-contact-outline"></i>  Profile</a>
                 </li>
+                <% if(title == 'Dashboard'){%> 
+                    <li class="nav-item">
+                        <a><i class="ion-chatbubble"></i> Direct Messages <span class="ion-ios-plus-outline" style="color:green; font-size: 18px; float: right; cursor: pointer;"></span></a>
+                    </li>
+                <%}%>
             </ul>
+            <% if(title == 'Dashboard'){%> 
+            <ul class="nav nav-drawer" id="directMsgList">
+                <% if(data[0].allConv !== undefined){%>
+                    <% _.each(data[0].allConv, function(all,kaa){ %> 
+                        <% if(all.participants.indexOf(user_id) !== -1){%>
+                            <% if(all.conv_type == 'single'){%>
+                                <% _.each(all.participants, function(v,k){ %>   
+                                    <% if(v !== user_id ){%>
+                                        <% _.each(data[0].users, function(user,ku){ %> 
+                                            <% if(user._id == v){%>
+                                                <li class="nav-item conversations_Sidebar" id="conv_<%= all.conversation_id %>" data-name="<%= user.name%>" data-conv-id="<%= all.conversation_id %>" data-user-id="<%= user._id%>" data-conv-type="<%= all.conv_type %>" data-tm="<%= all.participants.length %>">
+                                                    <a><i class="fa fa-circle" style="color: rgb(125, 200, 85); font-size: 14px !important; line-height: 19px !important"></i> <span class="user_name"><%= user. name%></span></a>
+                                                </li>
+                                            <%}%>
+                                        <%})%>
+                                    <%}%>
+                                <%})%>
+                            <%}%>
+                        <%}%>
+                    <%})%>
+                <%}%>
+            </ul>
+            <% } %>
         </nav>
         <!-- End drawer navigation -->
 

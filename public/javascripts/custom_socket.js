@@ -71,6 +71,7 @@ var openConversation = (id)=>{
         console.log('Conversation already exists');
     }else{
         socket.emit('create_conversation', data,function(res){
+            console.log(res);
             myAllSingleConvUsers.push(res.conversation_id);
             myAllSingleConvUsers.push(id);
             $.each(allUserData, function(k,v){
@@ -90,3 +91,30 @@ var openConversation = (id)=>{
 
 
 }
+
+
+socket.on('newConversation', function(res){
+    if(!$('#conv_'+res.conversation_id).is(':visible')){
+        if(res.participants.indexOf(user_id) !== -1){
+            $.each(res.participants, function(ka,va){
+                if(va !== user_id){
+                    myAllSingleConvUsers.push(va);
+                    myAllSingleConvUsers.push(res.conversation_id);
+                    $.each(allUserData, function(k,v){
+                        if(v._id == va){
+                                var design = ' <li onclick="startConversation(\''+res.conversation_id+'\')" class="nav-item conversations_Sidebar" id="conv_'+res.conversation_id+'" data-name="'+v.name+'" data-conv-id="'+res.conversation_id+'" data-user-id="'+va+'" data-conv-type="'+res.conv_type+'" data-tm="'+res.participants.length+'">';
+                                    design +=      '<a>'
+                                    design +=           '<i class="fa fa-circle" style="color: rgb(125, 200, 85); font-size: 14px !important; line-height: 19px !important"></i>';
+                                    design +=           '<span class="user_name">'+v.name+'</span>';
+                                    design +=      '</a>';
+                                    design +=  '</li>';
+        
+                                    $('#directMsgList').prepend(design);
+                            }
+                    });
+                }
+            });
+
+        }
+    }
+});

@@ -32,9 +32,9 @@ module.exports = function (io) {
     });
 
     socket.on('update_profile', function(data,callback){
-      update_profile(data,function(error, result){
-        if(error){
-          callback(error);
+      update_profile(data,function(result,err){
+        if(err){
+          callback(err);
         }else{
           callback(result);
         }
@@ -42,11 +42,13 @@ module.exports = function (io) {
     });
 
     socket.on('create_conversation', function(data,callback){
-      create_conversations(data,function(error, result){
-        if(error){
-          callback(error);
+      create_conversations(data,function(result, err){
+        if(err){
+          callback(err);
         }else{
+          socket.broadcast.emit('newConversation', result);
           callback(result);
+          
         }
       });
     });

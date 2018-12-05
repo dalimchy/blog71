@@ -11,7 +11,7 @@ const User = require('../models/User');
 //load conversation model
 const Message = require('../models/Message');
 
-var sendMessage =(data,callback)=>{
+var send_Message =(data,callback)=>{
 
   var messageId = uuidv4();
 
@@ -41,4 +41,4 @@ var sendMessage =(data,callback)=>{
 
 
 
-module.exports = {sendMessage};
+module.exports = {send_Message};

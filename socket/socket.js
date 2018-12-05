@@ -4,6 +4,7 @@ module.exports = function (io) {
   var router = app.Router();
     var {update_profile} = require('./../utils/profile');
     var {create_conversations} = require('./../utils/conversation');
+    var {send_Message} = require('./../utils/message');
   
   io.on('connection', function (socket) {
     socket.join('1');
@@ -49,6 +50,17 @@ module.exports = function (io) {
           socket.broadcast.emit('newConversation', result);
           callback(result);
           
+        }
+      });
+    });
+
+    socket.on('sendMessage', function(data,callback){
+      send_Message(data, function(result, err){
+        if(err){
+          callback(err);
+        }else{
+          callback(result);
+          console.log(result);
         }
       });
     });

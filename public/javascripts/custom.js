@@ -68,7 +68,7 @@ function writeMsg(e){
 				
 			}
 		}
-});
+};
 // function drawMsg (e){
 // 	var msgValue = $('#writeMsgInput').val();
 

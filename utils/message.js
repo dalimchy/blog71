@@ -20,7 +20,9 @@ var send_Message =(data,callback)=>{
       conversation_id : data.conversation_id,
       msg_body : data.msg_body,
       msg_sender_id : data.msg_sender_id,
-      msg_seen_by : data.msg_seen_by
+      msg_seen_by : data.msg_seen_by,
+      msg_sender_name :data.msg_sender_name,
+      msg_sender_img : data.nsg_sender_img
 
   };
 	var sendMessage = new Message({
@@ -28,6 +30,8 @@ var send_Message =(data,callback)=>{
     conversation_id: data.conversation_id,
     msg_body: data.msg_body,
     msg_sender_id : data.msg_sender_id,
+    msg_sender_name :data.msg_sender_name,
+    msg_sender_img : data.nsg_sender_img,
     msg_seen_by: data.msg_seen_by
   });
 
@@ -39,6 +43,16 @@ var send_Message =(data,callback)=>{
   .catch(err => console.log(err));
 }
 
+var msg_history = (data,callback)=>{
+  Message.find({conversation_id:data},(result,err)=>{
+    if(err){
+      callback(err);
+    }else{
+      callback(result);
+    }
+  });
+}
 
 
-module.exports = {send_Message};
+
+module.exports = {send_Message,msg_history};

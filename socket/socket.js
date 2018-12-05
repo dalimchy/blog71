@@ -4,7 +4,7 @@ module.exports = function (io) {
   var router = app.Router();
     var {update_profile} = require('./../utils/profile');
     var {create_conversations} = require('./../utils/conversation');
-    var {send_Message} = require('./../utils/message');
+    var {send_Message,msg_history} = require('./../utils/message');
   
   io.on('connection', function (socket) {
     socket.join('1');
@@ -60,7 +60,17 @@ module.exports = function (io) {
           callback(err);
         }else{
           callback(result);
-          console.log(result);
+          socket.broadcast.emit('newMessage', result);
+        }
+      });
+    });
+
+    socket.on('get_conversation_history', function(data,callback){
+      msg_history(data, function(result, err){
+        if(err){
+          callback(err);
+        }else{
+          callback(result);
         }
       });
     });

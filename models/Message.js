@@ -19,6 +19,13 @@ const messageSchema = new Schema({
         type:String,
         required:true
     },
+    msg_sender_name:{
+        type:String,
+        required:true
+    },
+    msg_sender_img:{
+        type:String
+    },
     msg_seen_by:{
         type:[String]
     },

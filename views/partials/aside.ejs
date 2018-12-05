@@ -23,7 +23,7 @@
                     <a href="/profile" style="<% if(title == 'Profile'){%> color:rgb(125, 200, 85) <%}%>"><i class="ion-ios-contact-outline"></i>  Profile</a>
                 </li>
                 <% if(title == 'Dashboard'){%> 
-                    <li class="nav-item" onclick="showRightSection('userList')">
+                    <li class="nav-item" id="DirMsg" onclick="showRightSection('userList')">
                         <a><i class="ion-chatbubble"></i> Direct Messages <span class="ion-ios-plus-outline" style="color:green; font-size: 18px; float: right; cursor: pointer;"></span></a>
                     </li>
                 <%}%>

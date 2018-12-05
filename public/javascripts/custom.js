@@ -12,10 +12,12 @@ function removeA(arr) {
 
 
 function showRightSection(type){
+	$('.nav-item').removeClass('active');
 	if(type == "userList"){
 		$('#allUserTable').show();
 		$('#dashBoardHead').hide();
 		$('#chatContainer').hide();
+		$('#DirMsg').addClass('active');
 	}
 }
 
@@ -29,6 +31,8 @@ function closeRighSection(type){
 }
 
 function startConversation(convID){
+	$('.nav-item').removeClass('active');
+	$('#conv_'+convID).addClass('active');
 	$('#dashBoardHead').hide();
 	$('#allUserTable').hide();
 	$('#chatContainer').show();
@@ -103,3 +107,4 @@ socket.on('newMessage', function(data){
 		}
 	}
 });
+

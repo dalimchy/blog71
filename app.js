@@ -13,8 +13,8 @@ var expressSession = require('express-session')({
 });
 var socketIO = require('socket.io');
 var sharedsession = require("express-socket.io-session");
-
-//DB config
+///for test commit
+//DB config  
 const db = require('./config/keys').mongoURI;
 //Mngo DB connection
 mongoose
